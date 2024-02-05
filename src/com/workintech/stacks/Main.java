@@ -1,3 +1,5 @@
+package com.workintech.stacks;
+
 import java.util.Stack;
 
 public class Main {
