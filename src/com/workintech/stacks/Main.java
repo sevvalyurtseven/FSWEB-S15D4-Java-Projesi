@@ -15,12 +15,13 @@ public class Main {
 
     public static boolean checkForPalindrome(String text) {
         System.out.println("Initial text = " + text);
+        //.,? gibi karakterleri boslukla degistirelim.
         text = text.replaceAll("[.,'?\\-\\s]", "");
         Stack<Character> stackOriginal = new Stack<>();
         var stackTemp = new Stack<>(); //normal stack
         var stackReversed = new Stack<>(); // ters cevrilmis stack
 
-        var chars = text.toCharArray();
+        var chars = text.toCharArray(); //karakter array'i
         for(var c : chars){
             stackOriginal.push(c);
             /*

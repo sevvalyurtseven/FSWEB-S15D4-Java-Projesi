@@ -31,8 +31,8 @@ public class Main {
         System.out.println("Stack: " + stack);
 
         while ( !queue.isEmpty()){
-            Character c = queue.remove();
-            Character cStack = stack.pop();
+            Character c = queue.remove(); //queue'dan eleman silme
+            Character cStack = stack.pop();  // stack'den eleman silme
 
             System.out.println("Removed Item Queue: " + c);
             System.out.println("Removed Item Stack: " + cStack);
