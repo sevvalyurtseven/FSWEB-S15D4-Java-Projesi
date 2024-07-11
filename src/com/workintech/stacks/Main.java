@@ -1,5 +1,6 @@
 package com.workintech.stacks;
 
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Main {
@@ -14,50 +15,25 @@ public class Main {
     }
 
     public static boolean checkForPalindrome(String text) {
-        System.out.println("Initial text = " + text);
-        //.,? gibi karakterleri boslukla degistirelim.
-        text = text.replaceAll("[.,'?\\-\\s]", "");
-        Stack<Character> stackOriginal = new Stack<>();
-        var stackTemp = new Stack<>(); //normal stack
-        var stackReversed = new Stack<>(); // ters cevrilmis stack
+        //TODO: numerik ve alfabetik karakterler dısındaki herseyi bosluk ile degistir.
 
-        var chars = text.toCharArray(); //karakter array'i
-        for(var c : chars){
-            stackOriginal.push(c);
-            /*
-              l
-              e
-              h
-             */
-            stackTemp.push(c);
-            /*
-              l
-              e
-              h
-             */
-        }
+       String cleanedStr = text.replaceAll("[^a-zA-Z0-9]","").toLowerCase();
 
-        for(char c : chars){
-            Object charTemp = stackTemp.pop();
-            stackReversed.push((Character)charTemp);
-            /*
-              l
-              e
-              h
-             */
+        LinkedList<Character> charList = new LinkedList<>();
 
-            /* stackReversed
-            h
-            e
-            l
-             */
-        }
-        System.out.println("Reversed = " + stackReversed);
-        System.out.println("Original = " + stackOriginal);
+        //TODO: Stringi karakter array'ine cevir ve her bir karakteri sırayla alıp karakter listesinin içine ekle
 
-        if(stackOriginal.equals(stackReversed)){
-            return true;
-        }
-        return false;
+       for(char c : cleanedStr.toCharArray()){
+           charList.add(c);
+       }
+
+       //TODO: Listenin size'i 1den büyük oldugunda esitlige bak
+
+       while (charList.size() > 1) {
+           if(!charList.pollFirst().equals(charList.pollLast())){
+               return false;
+           }
+       }
+       return true;
     }
 }
